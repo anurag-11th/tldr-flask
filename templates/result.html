@@ -1,0 +1,24 @@
+<html>
+  <head>
+		<title>TL;DR</title>
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/index.css') }}" />
+		<!-- href="{{ url_for('static', filename='css/index.css') }}" href="../static/css/index.css"  -->
+	</head>
+
+	<body>
+		<div class="header">
+			<div class="heading">
+				<h1>TL;DR</h1>
+			</div>
+			<div class="summary-body">
+				<div class="result-inner">
+					{% block content %}
+						{% for sent in summaries %}
+							<p class="result">{{ sent|e }}</p>
+						{% endfor %}
+					{% endblock content %}
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
