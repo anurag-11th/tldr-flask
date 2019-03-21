@@ -10,14 +10,14 @@
 			<div class="heading">
 				<h1>TL;DR</h1>
 			</div>
-			<div class="summary-body">
-				<div class="result-inner">
-					{% block content %}
-						{% for sent in summaries %}
-							<p class="result">{{ sent|e }}</p>
-						{% endfor %}
-					{% endblock content %}
-				</div>
+		</div>
+		<div class="summary-body">
+			<div class="result-inner">
+				{% block content %}
+					{% for sent in summaries %}
+						<p class="result">{{ sent|e }}</p>
+					{% endfor %}
+				{% endblock %}
 			</div>
 		</div>
 	</body>
