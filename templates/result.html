@@ -1,14 +1,23 @@
 <html>
   <head>
 		<title>TL;DR</title>
-		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/index.css') }}" />
-		<!-- href="{{ url_for('static', filename='css/index.css') }}" href="../static/css/index.css"  -->
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/index2.css') }}" />
+		<link rel="stylesheet" type="text/css" href="../static/css/index2.css" />
+		<style type="text/css">
+			body {
+				overflow-x: hidden;
+				overflow-y: hidden;
+			}
+			.summary-body {
+				height: 80%;
+			}
+		</style>
 	</head>
 
 	<body>
 		<div class="header">
 			<div class="heading">
-				<h1>TL;DR</h1>
+				<a href="/"><h1>TL;DR</h1></a>
 			</div>
 		</div>
 		<div class="summary-body">
@@ -18,6 +27,24 @@
 						<p class="result">{{ sent|e }}</p>
 					{% endfor %}
 				{% endblock %}
+			</div>
+		
+			<div class="stats">
+				<div class="percentage">
+					<h2><b>STATISTICS<b></h2>
+					<p><span>Percentage reduced:</span> {{ percentage }}%</p>
+				</div>
+				<div class="words">
+					<P>Most used words: </p>
+					{% block words %}
+						{% for word in words %}
+							<p class="result"> {{ word }} </p> 
+						{% endfor %}
+					{% endblock %}
+				</div>
+				<div class="download">
+					<a href="/download" class="submit download">Download</a>
+				</div>
 			</div>
 		</div>
 	</body>

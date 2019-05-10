@@ -28,16 +28,29 @@ body, html {
 }
 
 .main {
-    margin: 15px;
+    margin: 15px auto;
+    width: 60%;
+    height: 80%;
+    /* border: 1px solid black; */
+    box-shadow: 0 0px 8px 0 rgba(0,0,0,0.4);
+
 }
 
 .summary-body {
-    width: 60%;
+    width: 100%;
     margin: auto;
     padding: 10px;
-    height: 75%;
-    box-shadow: 0 0px 8px 0 rgba(0,0,0,0.4);
-    border: 1px solid black;
+    height: 90%;
+    /* box-shadow: 0 0px 8px 0 rgba(0,0,0,0.4); */
+    /* border: 1px solid black; */
+}
+
+.tabs {
+    width: 100%;
+    margin: 10px auto;
+    height: auto;
+    background: #F7F7F9
+    /* border-bottom: 1px solid blue; */
 }
 
 textarea {
@@ -75,4 +88,14 @@ textarea {
 .result {
     color: #000000;
     display: inline-block;
+}
+
+#url-result {
+    display: block;
+    max-height: 80%;
+    overflow-y: auto;
+}
+
+input[type="url"] {
+    width: 90%;
 }

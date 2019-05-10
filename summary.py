@@ -4,13 +4,15 @@ from nltk.tokenize.punkt import PunktSentenceTokenizer, PunktTrainer
 from nltk.stem import WordNetLemmatizer
 from collections import OrderedDict
 from itertools import islice
+from operator import itemgetter
 
 lemmatizer = WordNetLemmatizer()
+pcts = '''!()-[]{};:'"\,“”’``''<>./?@#$%^&*_~''' + "'s"
+
 
 def clean_text(text):
 
 	stop_words = set(stopwords.words('english'))
-	pcts = '''!()-[]{};:'"\,<>./?@#$%^&*_~'''
 	text = text.lower()
 	tokens = word_tokenize(text)
 
@@ -117,8 +119,6 @@ def getPercentage(text, final_sentences):
 	for s in final_sentences:
 		stext += s
 
-	pcts = '''!()-[]{};:'"\,<>./?@#$%^&*_~'''
-
 	TextWordCount = word_tokenize(text)
 	words = [w for w in TextWordCount if w not in pcts]
 	wcount0 = len(words)
@@ -130,3 +130,12 @@ def getPercentage(text, final_sentences):
 	per = round(((wcount0 - wcount1) / wcount0) * 100)
 
 	return per
+
+def getTopWords(text, n=5):
+
+	score, unique = score_words(text)
+	topWords = dict(sorted(score.items(), key=itemgetter(1), reverse=True)[:n])
+	tpWords = []
+	for word in topWords:
+		tpWords.append(word.capitalize())
+	return tpWords
